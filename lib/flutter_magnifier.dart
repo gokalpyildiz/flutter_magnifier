@@ -1,3 +1,5 @@
+library;
+
 // Flutter Magnifier
 export 'src/enum/magnifier_position_enum.dart';
 export 'src/product/zoom_position_types.dart';
