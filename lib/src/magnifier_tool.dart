@@ -32,7 +32,7 @@ class MagnifierTool extends StatefulWidget {
   const MagnifierTool({
     super.key,
     required this.widget,
-    this.zoomPosition = const BouncingZoomPosition(MagnifierPosition.bouncingTopLeftBottomLeft),
+    this.zoomPosition = const BouncingZoomPosition(MagnifierPositionEnum.bouncingTopLeftBottomLeft),
     this.magnifierSize = const Size(100, 100),
     this.zoomScale = 2.0,
     this.borderColor = Colors.black,

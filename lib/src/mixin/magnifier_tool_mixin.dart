@@ -115,22 +115,22 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     final screen = screenSize!;
 
     switch (zoomPosition.position) {
-      case MagnifierPosition.bouncing:
+      case MagnifierPositionEnum.bouncing:
         _setBouncingPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopRightTopLeft:
+      case MagnifierPositionEnum.bouncingTopRightTopLeft:
         _setTopRightTopLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingBottomRightBottomLeft:
+      case MagnifierPositionEnum.bouncingBottomRightBottomLeft:
         _setBottomRightBottomLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopLeftBottomLeft:
+      case MagnifierPositionEnum.bouncingTopLeftBottomLeft:
         _setTopLeftBottomLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopRightBottomRight:
+      case MagnifierPositionEnum.bouncingTopRightBottomRight:
         _setTopRightBottomRightPosition(touch, screen);
         break;
-      case MagnifierPosition.fingertips:
+      case MagnifierPositionEnum.fingertips:
         _setFingertipsPosition(touch);
         break;
     }
