@@ -1,3 +1,5 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+## 0.0.1 - 22/05/2025
+
+* First Release
