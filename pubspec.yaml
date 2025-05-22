@@ -1,8 +1,8 @@
 name: flutter_magnifier
 description: A Flutter package that provides a magnifying glass effect for any widget.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/gokalpyildiz/flutter_magnifier
-repository: https://github.com/gokalpyildiz/flutter_magnifier.git
+repository: https://github.com/gokalpyildiz/flutter_magnifier
 issue_tracker: https://github.com/gokalpyildiz/flutter_magnifier/issues
 
 environment:

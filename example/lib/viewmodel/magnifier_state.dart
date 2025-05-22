@@ -15,7 +15,8 @@ class MagnifierState {
 
   const MagnifierState({
     this.image,
-    this.currentPosition = const BouncingZoomPosition(MagnifierPositionEnum.bouncingTopLeftBottomLeft),
+    this.currentPosition = const BouncingZoomPosition(
+        MagnifierPositionEnum.bouncingTopLeftBottomLeft),
     this.currentPositionValue = 'Bouncing',
     this.selectedBouncePosition,
     this.zoomScale = 2.0,
@@ -42,7 +43,8 @@ class MagnifierState {
       showBorder: showBorder ?? this.showBorder,
       borderColor: borderColor ?? this.borderColor,
       magnifierSize: magnifierSize ?? this.magnifierSize,
-      selectedBouncePosition: selectedBouncePosition ?? this.selectedBouncePosition,
+      selectedBouncePosition:
+          selectedBouncePosition ?? this.selectedBouncePosition,
     );
   }
 }

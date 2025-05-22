@@ -4,14 +4,22 @@ import 'package:flutter_magnifier/flutter_magnifier.dart';
 
 void main() {
   group('MagnifierTool Widget Tests', () {
-    testWidgets('renders correctly with default values', (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(home: Scaffold(body: MagnifierTool(widget: Text('Test')))));
+    testWidgets('renders correctly with default values', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(body: MagnifierTool(widget: Text('Test'))),
+        ),
+      );
 
       expect(find.byType(MagnifierTool), findsOneWidget);
       expect(find.text('Test'), findsOneWidget);
     });
 
-    testWidgets('renders correctly with custom values', (WidgetTester tester) async {
+    testWidgets('renders correctly with custom values', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(

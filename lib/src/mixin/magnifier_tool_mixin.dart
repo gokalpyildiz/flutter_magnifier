@@ -34,14 +34,21 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
   static const _updateInterval = Duration(milliseconds: 16);
 
   /// Creates a PositionedPoints object with the given coordinates
-  PositionedPoints getPosition(double top, double bottom, double left, double right) {
+  PositionedPoints getPosition(
+    double top,
+    double bottom,
+    double left,
+    double right,
+  ) {
     return PositionedPoints(top: top, bottom: bottom, left: left, right: right);
   }
 
   /// Captures the current screen content
   Future<void> captureScreen() async {
     try {
-      final boundary = boundaryKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+      final boundary =
+          boundaryKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         debugPrint('Warning: Could not find render boundary');
         return;

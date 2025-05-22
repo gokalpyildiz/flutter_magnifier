@@ -64,7 +64,8 @@ class MagnifierPainter extends CustomPainter {
 
   /// Applies a circular clip path to the canvas
   void _applyCircularClip(Canvas canvas, Offset center, double radius) {
-    final clipPath = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
+    final clipPath = Path()
+      ..addOval(Rect.fromCircle(center: center, radius: radius));
     canvas.clipPath(clipPath);
   }
 
@@ -75,7 +76,11 @@ class MagnifierPainter extends CustomPainter {
 
   /// Draws the magnified portion of the image
   void _drawMagnifiedImage(Canvas canvas, Size size) {
-    final sourceRect = Rect.fromCenter(center: position, width: size.width / scale, height: size.height / scale);
+    final sourceRect = Rect.fromCenter(
+      center: position,
+      width: size.width / scale,
+      height: size.height / scale,
+    );
     final destinationRect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawImageRect(image, sourceRect, destinationRect, Paint());
   }
@@ -101,6 +106,8 @@ class MagnifierPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(MagnifierPainter oldDelegate) {
-    return position != oldDelegate.position || image != oldDelegate.image || scale != oldDelegate.scale;
+    return position != oldDelegate.position ||
+        image != oldDelegate.image ||
+        scale != oldDelegate.scale;
   }
 }

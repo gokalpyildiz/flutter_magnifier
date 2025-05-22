@@ -4,10 +4,23 @@ import 'package:flutter_magnifier/src/models/position_points.dart';
 
 abstract class ZoomPosition {
   const ZoomPosition();
-  factory ZoomPosition.custom({double? top, double? bottom, double? left, double? right}) = CustomZoomPosition;
-  factory ZoomPosition.bouncing(MagnifierPositionEnum position, {EdgeInsets? padding}) = BouncingZoomPosition;
+  factory ZoomPosition.custom({
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+  }) = CustomZoomPosition;
+  factory ZoomPosition.bouncing(
+    MagnifierPositionEnum position, {
+    EdgeInsets? padding,
+  }) = BouncingZoomPosition;
   factory ZoomPosition.customFunction({
-    required PositionedPoints Function({required double top, required double bottom, required double left, required double right})
+    required PositionedPoints Function({
+      required double top,
+      required double bottom,
+      required double left,
+      required double right,
+    })
     setPositionFunction,
   }) = CustomFunctionZoomPosition;
 }
@@ -22,7 +35,13 @@ class CustomZoomPosition extends ZoomPosition {
 }
 
 class CustomFunctionZoomPosition extends ZoomPosition {
-  final PositionedPoints Function({required double top, required double bottom, required double left, required double right}) setPositionFunction;
+  final PositionedPoints Function({
+    required double top,
+    required double bottom,
+    required double left,
+    required double right,
+  })
+  setPositionFunction;
 
   const CustomFunctionZoomPosition({required this.setPositionFunction});
 }
@@ -30,5 +49,8 @@ class CustomFunctionZoomPosition extends ZoomPosition {
 class BouncingZoomPosition extends ZoomPosition {
   final MagnifierPositionEnum position;
   final EdgeInsets? padding;
-  const BouncingZoomPosition(this.position, {this.padding = const EdgeInsets.all(8)});
+  const BouncingZoomPosition(
+    this.position, {
+    this.padding = const EdgeInsets.all(8),
+  });
 }

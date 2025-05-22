@@ -11,7 +11,8 @@ class MagnifierPositionWidget extends StatefulWidget {
   });
 
   @override
-  State<MagnifierPositionWidget> createState() => _MagnifierPositionWidgetState();
+  State<MagnifierPositionWidget> createState() =>
+      _MagnifierPositionWidgetState();
 }
 
 class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
@@ -79,12 +80,17 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _buildBouncingChip('Fingertips', MagnifierPositionEnum.fingertips),
+              _buildBouncingChip(
+                  'Fingertips', MagnifierPositionEnum.fingertips),
               _buildBouncingChip('Bouncing', MagnifierPositionEnum.bouncing),
-              _buildBouncingChip('Top Left - Bottom Left', MagnifierPositionEnum.bouncingTopLeftBottomLeft),
-              _buildBouncingChip('Top Right - Bottom Right', MagnifierPositionEnum.bouncingTopRightBottomRight),
-              _buildBouncingChip('Top Right - Top Left', MagnifierPositionEnum.bouncingTopRightTopLeft),
-              _buildBouncingChip('Bottom Right - Bottom Left', MagnifierPositionEnum.bouncingBottomRightBottomLeft),
+              _buildBouncingChip('Top Left - Bottom Left',
+                  MagnifierPositionEnum.bouncingTopLeftBottomLeft),
+              _buildBouncingChip('Top Right - Bottom Right',
+                  MagnifierPositionEnum.bouncingTopRightBottomRight),
+              _buildBouncingChip('Top Right - Top Left',
+                  MagnifierPositionEnum.bouncingTopRightTopLeft),
+              _buildBouncingChip('Bottom Right - Bottom Left',
+                  MagnifierPositionEnum.bouncingBottomRightBottomLeft),
             ],
           ),
         ] else if (widget.viewModel.state.currentPositionValue == 'Custom') ...[
@@ -105,9 +111,12 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
                   controller: _topTextEditingController,
                   onChanged: (value) {
                     final top = double.tryParse(value);
-                    final left = double.tryParse(_leftTextEditingController.text);
+                    final left =
+                        double.tryParse(_leftTextEditingController.text);
                     if (top != null) {
-                      widget.viewModel.updateZoomPosition(CustomZoomPosition(top: top, left: left), selectedPosition: 'Custom');
+                      widget.viewModel.updateZoomPosition(
+                          CustomZoomPosition(top: top, left: left),
+                          selectedPosition: 'Custom');
                     }
                   },
                 ),
@@ -125,14 +134,17 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
                     final top = double.tryParse(_topTextEditingController.text);
                     final left = double.tryParse(value);
                     if (left != null) {
-                      widget.viewModel.updateZoomPosition(CustomZoomPosition(left: left, top: top), selectedPosition: 'Custom');
+                      widget.viewModel.updateZoomPosition(
+                          CustomZoomPosition(left: left, top: top),
+                          selectedPosition: 'Custom');
                     }
                   },
                 ),
               ),
             ],
           ),
-        ] else if (widget.viewModel.state.currentPositionValue == 'Custom Function') ...[
+        ] else if (widget.viewModel.state.currentPositionValue ==
+            'Custom Function') ...[
           const Text(
             'Custom Function Position:',
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
@@ -141,7 +153,11 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
           ElevatedButton(
             onPressed: () {
               widget.viewModel.updateZoomPosition(
-                CustomFunctionZoomPosition(({required bottom, required left, required right, required top}) {
+                CustomFunctionZoomPosition((
+                    {required bottom,
+                    required left,
+                    required right,
+                    required top}) {
                   return PositionedPoints(top: top + 50, right: right + 50);
                 }),
                 selectedPosition: 'Custom Function',
@@ -164,7 +180,8 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
       selected: isSelected,
       onSelected: (selected) {
         if (selected) {
-          widget.viewModel.updateZoomPosition(BouncingZoomPosition(position), selectedPosition: label);
+          widget.viewModel.updateZoomPosition(BouncingZoomPosition(position),
+              selectedPosition: label);
         }
       },
     );
@@ -173,10 +190,14 @@ class _MagnifierPositionWidgetState extends State<MagnifierPositionWidget> {
   void _updateZoomPosition(String position) {
     switch (position) {
       case 'Bouncing':
-        widget.viewModel.updateZoomPosition(const BouncingZoomPosition(MagnifierPositionEnum.bouncing), selectedPosition: 'Bouncing');
+        widget.viewModel.updateZoomPosition(
+            const BouncingZoomPosition(MagnifierPositionEnum.bouncing),
+            selectedPosition: 'Bouncing');
         break;
       case 'Custom':
-        widget.viewModel.updateZoomPosition(const CustomZoomPosition(top: 0, left: 0), selectedPosition: 'Custom');
+        widget.viewModel.updateZoomPosition(
+            const CustomZoomPosition(top: 0, left: 0),
+            selectedPosition: 'Custom');
         break;
       case 'Custom Function':
         widget.viewModel.updateZoomPosition(CustomFunctionZoomPosition(

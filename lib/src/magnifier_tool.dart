@@ -32,7 +32,9 @@ class MagnifierTool extends StatefulWidget {
   const MagnifierTool({
     super.key,
     required this.widget,
-    this.zoomPosition = const BouncingZoomPosition(MagnifierPositionEnum.bouncingTopLeftBottomLeft),
+    this.zoomPosition = const BouncingZoomPosition(
+      MagnifierPositionEnum.bouncingTopLeftBottomLeft,
+    ),
     this.magnifierSize = const Size(100, 100),
     this.zoomScale = 2.0,
     this.borderColor = Colors.black,
@@ -61,10 +63,18 @@ class MagnifierTool extends StatefulWidget {
   State<MagnifierTool> createState() => _MagnifierToolState();
 }
 
-class _MagnifierToolState extends State<MagnifierTool> with SingleTickerProviderStateMixin, MagnifierToolMixin {
+class _MagnifierToolState extends State<MagnifierTool>
+    with SingleTickerProviderStateMixin, MagnifierToolMixin {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Stack(children: [_buildMainContent(), if (_shouldShowMagnifier) _buildMagnifier()]));
+    return Scaffold(
+      body: Stack(
+        children: [
+          _buildMainContent(),
+          if (_shouldShowMagnifier) _buildMagnifier(),
+        ],
+      ),
+    );
   }
 
   Widget _buildMainContent() {
@@ -85,10 +95,17 @@ class _MagnifierToolState extends State<MagnifierTool> with SingleTickerProvider
   }
 
   Widget _buildMagnifier() {
-    return Positioned(top: positionedTop, bottom: positionedBottom, left: positionedLeft, right: positionedRight, child: _zoomWidget());
+    return Positioned(
+      top: positionedTop,
+      bottom: positionedBottom,
+      left: positionedLeft,
+      right: positionedRight,
+      child: _zoomWidget(),
+    );
   }
 
-  bool get _shouldShowMagnifier => touchPosition != null && screenImage != null && isShownMagnificier;
+  bool get _shouldShowMagnifier =>
+      touchPosition != null && screenImage != null && isShownMagnificier;
 
   Widget _zoomWidget() {
     return SizedBox(

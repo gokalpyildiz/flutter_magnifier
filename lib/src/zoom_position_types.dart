@@ -24,7 +24,13 @@ class BouncingZoomPosition extends ZoomPosition {
 
 /// Custom function zoom position that uses a callback for position calculation
 class CustomFunctionZoomPosition extends ZoomPosition {
-  final PositionedPoints Function({required double top, required double bottom, required double left, required double right}) setPositionFunction;
+  final PositionedPoints Function({
+    required double top,
+    required double bottom,
+    required double left,
+    required double right,
+  })
+  setPositionFunction;
 
   const CustomFunctionZoomPosition(this.setPositionFunction);
 }
