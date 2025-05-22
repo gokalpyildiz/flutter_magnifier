@@ -19,6 +19,7 @@ class MagnifierPainter extends CustomPainter {
     required this.imageSize,
     this.borderColor = Colors.black,
     this.shorBorder = true,
+    this.showInnerBorder = false,
   });
 
   /// The center point of the magnified area
@@ -38,6 +39,8 @@ class MagnifierPainter extends CustomPainter {
 
   /// Whether to show the magnifier border
   final bool shorBorder;
+
+  final bool showInnerBorder;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -80,20 +83,20 @@ class MagnifierPainter extends CustomPainter {
   /// Draws the magnifier border
   void _drawBorder(Canvas canvas, Offset center, double radius) {
     // Draw outer border
-    final outerBorderPaint =
-        Paint()
-          ..color = borderColor
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.5;
+    final outerBorderPaint = Paint()
+      ..color = borderColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
     canvas.drawCircle(center, radius, outerBorderPaint);
 
     // Draw inner border
-    final innerBorderPaint =
-        Paint()
-          ..color = Colors.white
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.5;
-    canvas.drawCircle(center, radius - 2, innerBorderPaint);
+    if (!showInnerBorder) {
+      final innerBorderPaint = Paint()
+        ..color = Colors.white
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5;
+      canvas.drawCircle(center, radius - 2, innerBorderPaint);
+    }
   }
 
   @override

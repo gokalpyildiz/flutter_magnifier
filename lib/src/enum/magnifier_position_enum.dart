@@ -1,5 +1,5 @@
 /// Enum defining different magnifier position behaviors
-enum MagnifierPosition {
+enum MagnifierPositionEnum {
   /// Magnifier bounces between all four corners based on touch position
   bouncing,
 

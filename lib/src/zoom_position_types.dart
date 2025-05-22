@@ -17,7 +17,7 @@ class CustomZoomPosition extends ZoomPosition {
 
 /// Bouncing zoom position that follows touch with predefined behavior
 class BouncingZoomPosition extends ZoomPosition {
-  final MagnifierPosition position;
+  final MagnifierPositionEnum position;
 
   const BouncingZoomPosition(this.position);
 }

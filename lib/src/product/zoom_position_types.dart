@@ -5,7 +5,7 @@ import 'package:flutter_magnifier/src/models/position_points.dart';
 abstract class ZoomPosition {
   const ZoomPosition();
   factory ZoomPosition.custom({double? top, double? bottom, double? left, double? right}) = CustomZoomPosition;
-  factory ZoomPosition.bouncing(MagnifierPosition position, {EdgeInsets? padding}) = BouncingZoomPosition;
+  factory ZoomPosition.bouncing(MagnifierPositionEnum position, {EdgeInsets? padding}) = BouncingZoomPosition;
   factory ZoomPosition.customFunction({
     required PositionedPoints Function({required double top, required double bottom, required double left, required double right})
     setPositionFunction,
@@ -28,7 +28,7 @@ class CustomFunctionZoomPosition extends ZoomPosition {
 }
 
 class BouncingZoomPosition extends ZoomPosition {
-  final MagnifierPosition position;
+  final MagnifierPositionEnum position;
   final EdgeInsets? padding;
   const BouncingZoomPosition(this.position, {this.padding = const EdgeInsets.all(8)});
 }

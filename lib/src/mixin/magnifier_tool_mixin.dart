@@ -115,22 +115,22 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     final screen = screenSize!;
 
     switch (zoomPosition.position) {
-      case MagnifierPosition.bouncing:
+      case MagnifierPositionEnum.bouncing:
         _setBouncingPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopRightTopLeft:
+      case MagnifierPositionEnum.bouncingTopRightTopLeft:
         _setTopRightTopLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingBottomRightBottomLeft:
+      case MagnifierPositionEnum.bouncingBottomRightBottomLeft:
         _setBottomRightBottomLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopLeftBottomLeft:
+      case MagnifierPositionEnum.bouncingTopLeftBottomLeft:
         _setTopLeftBottomLeftPosition(touch, screen);
         break;
-      case MagnifierPosition.bouncingTopRightBottomRight:
+      case MagnifierPositionEnum.bouncingTopRightBottomRight:
         _setTopRightBottomRightPosition(touch, screen);
         break;
-      case MagnifierPosition.fingertips:
+      case MagnifierPositionEnum.fingertips:
         _setFingertipsPosition(touch);
         break;
     }
@@ -166,13 +166,13 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     if (touch.dx < screen.width / 2) {
       positionedTop = 0;
       positionedBottom = null;
-      positionedLeft = 0;
-      positionedRight = null;
-    } else {
-      positionedTop = null;
-      positionedBottom = 0;
       positionedLeft = null;
       positionedRight = 0;
+    } else {
+      positionedTop = 0;
+      positionedBottom = null;
+      positionedLeft = 0;
+      positionedRight = null;
     }
   }
 
@@ -211,8 +211,8 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     if (touch.dx < screen.width / 2) {
       positionedTop = 0;
       positionedBottom = null;
-      positionedLeft = 0;
-      positionedRight = null;
+      positionedLeft = null;
+      positionedRight = 0;
     } else {
       positionedTop = null;
       positionedBottom = 0;
