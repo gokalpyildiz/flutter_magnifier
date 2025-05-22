@@ -3,6 +3,9 @@
 
 A Flutter package that provides a magnifying glass effect for any widget. This package allows you to add a magnifying glass functionality to your Flutter applications with various customization options.
 
+
+<img src="preview/home4.png" width="200" height="400">
+
 ## Features
 
 - 🔍 Magnify any widget with a circular magnifying glass
