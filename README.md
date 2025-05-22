@@ -38,7 +38,7 @@ MagnifierTool(
 MagnifierTool(
   widget: YourWidget(),
   zoomPosition: BouncingZoomPosition(MagnifierPosition.bouncing),
-  magnifierSize: const Size(150, 150),
+  magnifierSize: const Size(50, 50),
   zoomScale: 2.5,
   borderColor: Colors.blue,
   showBorder: true,

@@ -139,25 +139,25 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
   /// Sets position for bouncing behavior
   void _setBouncingPosition(Offset touch, Size screen) {
     if (touch.dx < screen.width / 2 && touch.dy < screen.height / 2) {
-      positionedTop = 0;
-      positionedBottom = null;
-      positionedLeft = 0;
-      positionedRight = null;
+      positionedTop = null;
+      positionedBottom = 0;
+      positionedLeft = null;
+      positionedRight = 0;
     } else if (touch.dx < screen.width / 2 && touch.dy >= screen.height / 2) {
-      positionedTop = null;
-      positionedBottom = 0;
-      positionedLeft = 0;
-      positionedRight = null;
-    } else if (touch.dx >= screen.width / 2 && touch.dy < screen.height / 2) {
       positionedTop = 0;
       positionedBottom = null;
       positionedLeft = null;
       positionedRight = 0;
-    } else {
+    } else if (touch.dx >= screen.width / 2 && touch.dy < screen.height / 2) {
       positionedTop = null;
       positionedBottom = 0;
-      positionedLeft = null;
-      positionedRight = 0;
+      positionedLeft = 0;
+      positionedRight = null;
+    } else {
+      positionedTop = 0;
+      positionedBottom = null;
+      positionedLeft = 0;
+      positionedRight = null;
     }
   }
 
@@ -208,14 +208,14 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
 
   /// Sets position for top-right to bottom-right bouncing
   void _setTopRightBottomRightPosition(Offset touch, Size screen) {
-    if (touch.dx < screen.width / 2) {
-      positionedTop = 0;
-      positionedBottom = null;
+    if (touch.dy < screen.height / 2) {
+      positionedTop = null;
+      positionedBottom = 0;
       positionedLeft = null;
       positionedRight = 0;
     } else {
-      positionedTop = null;
-      positionedBottom = 0;
+      positionedTop = 0;
+      positionedBottom = null;
       positionedLeft = null;
       positionedRight = 0;
     }
@@ -225,6 +225,8 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
   void _setFingertipsPosition(Offset touch) {
     positionedTop = touch.dy - (widget.magnifierSize.height + 20);
     positionedLeft = touch.dx - widget.magnifierSize.width / 2;
+    positionedBottom = null;
+    positionedRight = null;
     if (positionedTop! < -30) {
       positionedTop = widget.magnifierSize.height;
     }

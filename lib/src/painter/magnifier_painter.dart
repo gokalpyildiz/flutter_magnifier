@@ -90,7 +90,7 @@ class MagnifierPainter extends CustomPainter {
     canvas.drawCircle(center, radius, outerBorderPaint);
 
     // Draw inner border
-    if (!showInnerBorder) {
+    if (showInnerBorder) {
       final innerBorderPaint = Paint()
         ..color = Colors.white
         ..style = PaintingStyle.stroke
