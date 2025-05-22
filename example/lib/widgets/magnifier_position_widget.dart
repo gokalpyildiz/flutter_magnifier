@@ -63,7 +63,7 @@ class MagnifierPositionWidget extends StatelessWidget {
               _buildBouncingChip('Top Right - Bottom Right', MagnifierPositionEnum.bouncingTopRightBottomRight),
               _buildBouncingChip('Top Right - Top Left', MagnifierPositionEnum.bouncingTopRightTopLeft),
               _buildBouncingChip('Bottom Right - Bottom Left', MagnifierPositionEnum.bouncingBottomRightBottomLeft),
-              _buildBouncingChip('Top Left - Top Right', MagnifierPositionEnum.bouncingTopLeftBottomLeft),
+              _buildBouncingChip('Top Left - Bottom Left', MagnifierPositionEnum.bouncingTopLeftBottomLeft),
             ],
           ),
         ] else if (viewModel.state.currentPositionValue == 'Custom') ...[

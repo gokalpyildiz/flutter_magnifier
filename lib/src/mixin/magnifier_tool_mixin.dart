@@ -166,13 +166,13 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     if (touch.dx < screen.width / 2) {
       positionedTop = 0;
       positionedBottom = null;
-      positionedLeft = 0;
-      positionedRight = null;
-    } else {
-      positionedTop = null;
-      positionedBottom = 0;
       positionedLeft = null;
       positionedRight = 0;
+    } else {
+      positionedTop = 0;
+      positionedBottom = null;
+      positionedLeft = 0;
+      positionedRight = null;
     }
   }
 
@@ -211,8 +211,8 @@ mixin MagnifierToolMixin on State<MagnifierTool> {
     if (touch.dx < screen.width / 2) {
       positionedTop = 0;
       positionedBottom = null;
-      positionedLeft = 0;
-      positionedRight = null;
+      positionedLeft = null;
+      positionedRight = 0;
     } else {
       positionedTop = null;
       positionedBottom = 0;
