@@ -1,15 +1,3 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
 
 # Flutter Magnifier
 
@@ -21,7 +9,6 @@ A Flutter package that provides a magnifying glass effect for any widget. This p
 - 🎯 Multiple positioning modes (bouncing, fingertips, custom)
 - 🎨 Customizable magnifier size, zoom scale, and border
 - 🖼️ Smooth performance with optimized rendering
-- 📱 Works on both iOS and Android
 
 ## Installation
 
@@ -29,7 +16,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_magnifier: ^1.0.0
+  flutter_magnifier: ^0.0.1
 ```
 
 ## Usage
@@ -51,7 +38,7 @@ MagnifierTool(
 MagnifierTool(
   widget: YourWidget(),
   zoomPosition: BouncingZoomPosition(MagnifierPosition.bouncing),
-  magnifierSize: const Size(150, 150),
+  magnifierSize: const Size(50, 50),
   zoomScale: 2.5,
   borderColor: Colors.blue,
   showBorder: true,
