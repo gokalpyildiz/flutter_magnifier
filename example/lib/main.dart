@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Magnifier Example',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
-      home: const MagnifierExample(),
+      debugShowCheckedModeBanner: false,
+      home: const SafeArea(child: MagnifierExample()),
     );
   }
 }

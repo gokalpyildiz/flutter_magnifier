@@ -11,20 +11,23 @@ class MagnifierState {
   final bool showBorder;
   final Color borderColor;
   final Size magnifierSize;
+  final String? selectedBouncePosition;
 
   const MagnifierState({
     this.image,
     this.currentPosition = const BouncingZoomPosition(MagnifierPositionEnum.bouncingTopLeftBottomLeft),
     this.currentPositionValue = 'Bouncing',
+    this.selectedBouncePosition,
     this.zoomScale = 2.0,
     this.showBorder = true,
     this.borderColor = Colors.black,
-    this.magnifierSize = const Size(150, 150),
+    this.magnifierSize = const Size(50, 50),
   });
 
   MagnifierState copyWith({
     File? image,
     ZoomPosition? currentPosition,
+    String? selectedBouncePosition,
     String? currentPositionValue,
     double? zoomScale,
     bool? showBorder,
@@ -39,6 +42,7 @@ class MagnifierState {
       showBorder: showBorder ?? this.showBorder,
       borderColor: borderColor ?? this.borderColor,
       magnifierSize: magnifierSize ?? this.magnifierSize,
+      selectedBouncePosition: selectedBouncePosition ?? this.selectedBouncePosition,
     );
   }
 }

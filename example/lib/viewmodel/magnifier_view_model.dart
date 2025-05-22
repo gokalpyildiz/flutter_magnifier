@@ -37,8 +37,8 @@ class MagnifierViewModel {
     _stateNotifier.update(state.copyWith(currentPositionValue: position));
   }
 
-  void updateZoomPosition(ZoomPosition position) {
-    _stateNotifier.update(state.copyWith(currentPosition: position));
+  void updateZoomPosition(ZoomPosition position, {required String selectedPosition}) {
+    _stateNotifier.update(state.copyWith(currentPosition: position, selectedBouncePosition: selectedPosition));
   }
 
   // Zoom scale handling

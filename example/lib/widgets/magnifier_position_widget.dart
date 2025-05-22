@@ -84,7 +84,7 @@ class MagnifierPositionWidget extends StatelessWidget {
                   onChanged: (value) {
                     final top = double.tryParse(value);
                     if (top != null) {
-                      viewModel.updateZoomPosition(CustomZoomPosition(top: top));
+                      viewModel.updateZoomPosition(CustomZoomPosition(top: top), selectedPosition: 'Custom');
                     }
                   },
                 ),
@@ -100,7 +100,7 @@ class MagnifierPositionWidget extends StatelessWidget {
                   onChanged: (value) {
                     final left = double.tryParse(value);
                     if (left != null) {
-                      viewModel.updateZoomPosition(CustomZoomPosition(left: left));
+                      viewModel.updateZoomPosition(CustomZoomPosition(left: left), selectedPosition: 'Custom');
                     }
                   },
                 ),
@@ -119,6 +119,7 @@ class MagnifierPositionWidget extends StatelessWidget {
                 CustomFunctionZoomPosition(({required bottom, required left, required right, required top}) {
                   return PositionedPoints(top: top + 50, right: right + 50);
                 }),
+                selectedPosition: 'Custom Function',
               );
             },
             child: const Text('Apply Custom Function'),
@@ -129,12 +130,16 @@ class MagnifierPositionWidget extends StatelessWidget {
   }
 
   Widget _buildBouncingChip(String label, MagnifierPositionEnum position) {
+    final isSelected = viewModel.state.selectedBouncePosition == label;
     return ChoiceChip(
-      label: Text(label),
-      selected: false,
+      label: Text(
+        label,
+        style: const TextStyle(fontSize: 13),
+      ),
+      selected: isSelected,
       onSelected: (selected) {
         if (selected) {
-          viewModel.updateZoomPosition(BouncingZoomPosition(position));
+          viewModel.updateZoomPosition(BouncingZoomPosition(position), selectedPosition: label);
         }
       },
     );
@@ -143,19 +148,17 @@ class MagnifierPositionWidget extends StatelessWidget {
   void _updateZoomPosition(String position) {
     switch (position) {
       case 'Bouncing':
-        viewModel.updateZoomPosition(const BouncingZoomPosition(MagnifierPositionEnum.bouncing));
+        viewModel.updateZoomPosition(const BouncingZoomPosition(MagnifierPositionEnum.bouncing), selectedPosition: 'Bouncing');
         break;
       case 'Custom':
-        viewModel.updateZoomPosition(const CustomZoomPosition(top: 0, left: 0));
+        viewModel.updateZoomPosition(const CustomZoomPosition(top: 0, left: 0), selectedPosition: 'Custom');
         break;
       case 'Custom Function':
-        viewModel.updateZoomPosition(
-          CustomFunctionZoomPosition(
-            ({required bottom, required left, required right, required top}) {
-              return PositionedPoints(top: top + 50, right: right + 50);
-            },
-          ),
-        );
+        viewModel.updateZoomPosition(CustomFunctionZoomPosition(
+          ({required bottom, required left, required right, required top}) {
+            return PositionedPoints(top: top + 50, right: right + 50);
+          },
+        ), selectedPosition: 'Custom Function');
         break;
     }
   }
